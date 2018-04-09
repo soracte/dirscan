@@ -7,3 +7,4 @@
 /opt/files
 /opt/files/log
 /lib/bin
+/lib/bin/square

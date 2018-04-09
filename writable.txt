@@ -2,3 +2,4 @@
 /bin/creator/log
 /opt/data
 /lib
+/lib/bin/square/util
