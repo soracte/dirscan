@@ -8,6 +8,7 @@ public class Main {
 
     private static PathCreator pathCreator = new PathCreator();
     private static TreeManager treeManager = new TreeManager();
+    private static TreePrinter treePrinter = new TreePrinter();
 
     public static void main(String[] args) {
         List<String> readable = Arrays.asList("/var/lib/jenkins", "/var/lib", "/var", "/", "/bin/helper");
@@ -29,7 +30,11 @@ public class Main {
                 treeManager.includePathInResult(root, path);
             }
         });
+
+        treePrinter.printTree(root);
     }
+
+
 
 
 }

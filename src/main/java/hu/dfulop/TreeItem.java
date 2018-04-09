@@ -31,6 +31,10 @@ public class TreeItem {
         return children;
     }
 
+    public boolean isIncludeInResult() {
+        return includeInResult;
+    }
+
     public void setIncludeInResult(boolean includeInResult) {
         this.includeInResult = includeInResult;
     }
