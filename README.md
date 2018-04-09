@@ -15,3 +15,7 @@ This creates a JAR file in the folder ``build/libs`` which is used to launch the
 
 The files themselves are simple text files. Each line in these files contains an absolute path to a directory.
 Examples can be found in the root folder of the project (``readable.txt`` and ``writable.txt``).
+
+## Note
+There is no way to explicitly specify a tree, but this is not necessary since only the readable/writable folders are 
+relevant anyway.
