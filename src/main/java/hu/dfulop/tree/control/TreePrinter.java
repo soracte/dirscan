@@ -1,4 +1,6 @@
-package hu.dfulop;
+package hu.dfulop.tree.control;
+
+import hu.dfulop.tree.domain.TreeItem;
 
 public class TreePrinter {
 

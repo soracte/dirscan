@@ -1,6 +1,9 @@
-package hu.dfulop;
+package hu.dfulop.paths.control;
 
-import static hu.dfulop.Permission.NONE;
+import hu.dfulop.paths.domain.Path;
+import hu.dfulop.permission.Permission;
+
+import static hu.dfulop.permission.Permission.NONE;
 
 public class PathCreator {
 

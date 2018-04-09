@@ -1,0 +1,9 @@
+/var/lib/jenkins
+/var/lib
+/var
+/
+/bin/helper
+/opt
+/opt/files
+/opt/files/log
+/lib/bin

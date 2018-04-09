@@ -1,8 +1,9 @@
-package hu.dfulop;
+package hu.dfulop.tree.domain;
+
+import hu.dfulop.permission.Permission;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class TreeItem {
 
@@ -13,14 +14,6 @@ public class TreeItem {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Permission getPermission() {
-        return permission;
     }
 
     public void setPermission(Permission permission) {
@@ -46,7 +39,6 @@ public class TreeItem {
     public static final class Builder {
         private String name;
         private Permission permission;
-        private List<TreeItem> children = new ArrayList<>();
 
         private Builder() {
         }
@@ -65,16 +57,10 @@ public class TreeItem {
             return this;
         }
 
-        public Builder withChildren(List<TreeItem> children) {
-            this.children = children;
-            return this;
-        }
-
         public TreeItem build() {
             TreeItem treeItem = new TreeItem();
-            treeItem.setName(name);
+            treeItem.name = name;
             treeItem.setPermission(permission);
-            treeItem.children = this.children;
             return treeItem;
         }
     }

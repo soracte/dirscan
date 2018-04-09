@@ -1,0 +1,4 @@
+/var/lib/jenkins/log
+/bin/creator/log
+/opt/data
+/lib

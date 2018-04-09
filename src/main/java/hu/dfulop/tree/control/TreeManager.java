@@ -1,4 +1,8 @@
-package hu.dfulop;
+package hu.dfulop.tree.control;
+
+import hu.dfulop.paths.domain.Path;
+import hu.dfulop.permission.Permission;
+import hu.dfulop.tree.domain.TreeItem;
 
 import java.util.Optional;
 

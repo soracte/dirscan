@@ -1,4 +1,4 @@
-package hu.dfulop;
+package hu.dfulop.permission;
 
 public enum Permission {
     NONE, READ, WRITE
