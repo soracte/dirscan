@@ -17,15 +17,15 @@ import java.util.stream.Stream;
 
 public class DirscanApplication {
 
-    private static PathCreator pathCreator = new PathCreator();
-    private static TreeManager treeManager = new TreeManager();
-    private static TreePrinter treePrinter = new TreePrinter();
+    private PathCreator pathCreator = new PathCreator();
+    private TreeManager treeManager = new TreeManager();
+    private TreePrinter treePrinter = new TreePrinter();
 
     public void execute(String[] args) throws IOException {
         List<String> readable = new ArrayList<>();
         List<String> writable = new ArrayList<>();
 
-        findDirectoriesInInputFiles(args, readable, writable);
+        fillListsWithDirectoriesFromInputFiles(args, readable, writable);
 
         List<Path> readablePaths = readable.stream().map(r -> pathCreator.createPath(r, Permission.READ)).collect(Collectors.toList());
         List<Path> writablePaths = writable.stream().map(r -> pathCreator.createPath(r, Permission.WRITE)).collect(Collectors.toList());
@@ -56,7 +56,7 @@ public class DirscanApplication {
         return root;
     }
 
-    private void findDirectoriesInInputFiles(String[] args, List<String> readable, List<String> writable) throws IOException {
+    private void fillListsWithDirectoriesFromInputFiles(String[] args, List<String> readable, List<String> writable) throws IOException {
         String readableDirectoriesFilename = args[0];
         try (Stream<String> stream = Files.lines(Paths.get(readableDirectoriesFilename))) {
             stream.forEach(readable::add);

@@ -1,4 +1,4 @@
-package hu.dfulop;
+package hu.dfulop.paths.control;
 
 import com.sun.source.tree.AssertTree;
 import hu.dfulop.paths.domain.Path;

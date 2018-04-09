@@ -52,10 +52,6 @@ public class TreeManager {
         return false;
     }
 
-    private boolean isLeaf(Path path) {
-        return path.getSubfolder() == null;
-    }
-
     public void includePathInResult(TreeItem root, Path path) {
         root.setIncludeInResult(true);
 
@@ -69,6 +65,10 @@ public class TreeManager {
         }
 
         includePathInResult(child.get(), path.getSubfolder());
+    }
+
+    private boolean isLeaf(Path path) {
+        return path.getSubfolder() == null;
     }
 
     private Optional<TreeItem> findChildWithName(TreeItem root, String name) {
