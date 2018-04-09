@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class TreeItem {
+
     private String name;
     private Permission permission;
     private List<TreeItem> children = new ArrayList<>();
+    private boolean includeInResult;
 
     public String getName() {
         return name;
@@ -29,36 +31,13 @@ public class TreeItem {
         return children;
     }
 
-    public void addPath(Path addedPath) {
-        if (isLeaf(addedPath)) {
-            this.setPermission(addedPath.getPermission());
-            return;
-        }
-
-        TreeItem next;
-
-        Optional<TreeItem> childCandidate = children.stream()
-                .filter(c -> c.getName().equals(addedPath.getName())).findFirst();
-
-        if (childCandidate.isPresent()) {
-            next = childCandidate.get();
-        } else {
-            TreeItem child = Builder
-                    .aTreeItem()
-                    .withName(addedPath.getName())
-                    .build();
-
-            children.add(child);
-            next = child;
-        }
-
-        next.addPath(addedPath.getSubfolder());
+    public void setIncludeInResult(boolean includeInResult) {
+        this.includeInResult = includeInResult;
     }
 
-    private boolean isLeaf(Path path) {
-        return path.getSubfolder() == null;
+    public boolean isAtLeastReadable() {
+        return permission == Permission.READ || permission == Permission.WRITE;
     }
-
 
     public static final class Builder {
         private String name;

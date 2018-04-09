@@ -1,25 +1,35 @@
 package hu.dfulop;
 
+import static hu.dfulop.Permission.NONE;
+
 public class PathCreator {
 
-    private static final Path ROOT_PATH = Path.Builder.aPath()
-            .withName("/")
-            .withPermission(Permission.NONE)
-            .build();
-
     public Path createPath(String path, Permission permission) {
-        Path current = ROOT_PATH;
+        String pathWithoutRoot = path.substring(1);
 
-        for (String pathPart : path.split("/")) {
-            Path subfolder = Path.Builder.aPath()
-                    .withName(pathPart)
-                    .build();
+        Path root = createRootPath();
+        Path current = root;
 
-            current.setSubfolder(subfolder);
-            current = subfolder;
+        if (!pathWithoutRoot.isEmpty()) {
+            for (String pathPart : pathWithoutRoot.split("/")) {
+                Path subfolder = Path.Builder.aPath()
+                        .withName(pathPart)
+                        .withPermission(NONE)
+                        .build();
+
+                current.setSubfolder(subfolder);
+                current = subfolder;
+            }
         }
 
         current.setPermission(permission);
-        return current;
+        return root;
+    }
+
+    private Path createRootPath() {
+        return Path.Builder.aPath()
+                .withName("/")
+                .withPermission(NONE)
+                .build();
     }
 }
